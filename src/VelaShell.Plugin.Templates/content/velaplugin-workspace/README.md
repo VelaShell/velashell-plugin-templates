@@ -98,6 +98,8 @@ dotnet build -c Release -t:PackVpx -p:VelaSigningKey=/path/to/key.pem
 - **语言切换要重注册,但 provider 沿用同一个实例**:换了实例,宿主会关掉这个类型名下所有开着的文档。
 - **凭据是一次性的**:`request.Password` 只在 `OpenAsync` 那一刻交给你,不要落盘、不要进日志、不要显示。
 - 面板里的颜色、字号一律 `{DynamicResource Vela*}`;后台线程来的事件经 `Dispatcher.UIThread` 封送。
+- 本工程针对宿主使用的 Avalonia `AVALONIA_VERSION` 编译 AXAML,不随插件分发 Avalonia。
+  改投其它宿主版本时,更新工程中的 `VelaAvaloniaVersion`;新建项目也可用 `--avaloniaVersion` 指定。
 - 用到新版 SDK 的面就抬 `plugin.json` 的 `minSdkVersion`(本模板用了 2.0.4 的 `PluginIcon`)。
 - `VelaShell.PluginSdk.dll` 与 `Avalonia*.dll` 永远不进插件目录:装载器强制共享宿主那一套。
 

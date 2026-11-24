@@ -6,7 +6,7 @@ namespace VelaPlugin1;
 
 /// <summary>
 /// 面板视图。插件 UI 用的是**完整的 Avalonia**:编译期 AXAML、自带样式、第三方控件包都能用,
-/// 唯一约束是 Avalonia 版本必须与宿主一致(由 SDK 包锁定)。
+/// 唯一约束是 Avalonia 版本必须与目标宿主一致(由项目的 VelaAvaloniaVersion 指定)。
 /// </summary>
 public sealed partial class DemoPanel : UserControl
 {

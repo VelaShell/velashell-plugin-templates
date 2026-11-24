@@ -49,8 +49,8 @@ dotnet build -c Release -t:PackVpx -p:VelaSigningKey=/path/to/key.pem
 ## 要点
 
 - `plugin.json` 的 `id` 发布后**不要再改**:它同时是命令 id 前缀与插件私有数据/机密的命名空间。
-- 插件 UI 直接用完整的 Avalonia,但**版本必须与宿主一致** —— 这一条由 SDK 包锁定,
-  自己另外引用别的版本会在构建期直接报错(VELA1001)。
+- 本工程针对宿主使用的 Avalonia `AVALONIA_VERSION` 编译 AXAML,不随插件分发 Avalonia。
+  改投其它宿主版本时,更新工程中的 `VelaAvaloniaVersion`;新建项目也可用 `--avaloniaVersion` 指定。
 - `VelaShell.PluginSdk.dll` 与 `Avalonia*.dll` 永远不进插件目录:装载器强制共享宿主那一套。
 
 完整开发指南:<https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/templates/dev-guide.md>

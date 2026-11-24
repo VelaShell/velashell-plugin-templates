@@ -114,6 +114,20 @@ try {
 
         Push-Location (Join-Path $WorkDirectory $projectName)
         try {
+            # 旧 .Build 间接带入 Avalonia,单看构建成功可能掩盖模板漏掉直接引用的问题。
+            $project = [xml](Get-Content -Raw "$projectName.csproj")
+            $avalonia = $project.SelectSingleNode("/Project/ItemGroup/PackageReference[@Include='Avalonia']")
+            $targetVersion = $project.SelectSingleNode('/Project/PropertyGroup/VelaAvaloniaVersion')
+            if ($template -in 'velaplugin-ui', 'velaplugin-workspace') {
+                if (-not $targetVersion -or -not $avalonia -or
+                    $targetVersion.InnerText -notmatch '^\d+\.\d+\.\d+' -or
+                    $avalonia.Version -ne '$(VelaAvaloniaVersion)' -or $avalonia.ExcludeAssets -ne 'runtime') {
+                    throw "${template}:缺少目标宿主版本或仅编译/构建用的 Avalonia 引用。"
+                }
+            } elseif ($avalonia -or $targetVersion) {
+                throw "${template}:不使用 UI 的模板不应直接引用或指定 Avalonia 版本。"
+            }
+
             # nuget.config 在工作区根,生成的工程在它下一层,还原时会向上找到 —— 与
             # 插件作者在自己机器上的情形一致(他们的源来自机器级配置)。
             dotnet build -c Release -t:PackVpx --nologo

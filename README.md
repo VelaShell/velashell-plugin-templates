@@ -37,8 +37,11 @@ dotnet test Kafka.Tests                                        # 不起宿主即
 dotnet run --file tools/EchoServer.cs                          # 本机试跑用的回显服务
 ```
 
-生成的工程只引用一个包(`VelaShell.PluginSdk.Build`),契约程序集、与宿主版本一致的
-Avalonia、清单校验与打包器都随它到位。
+生成的基础、协议插件工程只直接引用 `VelaShell.PluginSdk.Build`,不需要设置 Avalonia 版本。
+旧版 `.Build`(如 `2.1.4`)仍会间接还原 Avalonia,但不会把其 DLL 放进插件输出目录。
+UI 与工作台工程会额外显式引用目标宿主版本的 Avalonia(仅编译与 AXAML 构建资产),
+默认版本为 `12.2.0`,可在生成时用 `--avaloniaVersion` 选择其它目标宿主版本。契约程序集、
+清单校验与打包器由 `.Build` 包提供。
 
 细节看[开发指南](https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/templates/dev-guide.md);发布与签名看
 [打包与发布](https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/templates/publishing.md);

@@ -49,9 +49,16 @@
     "sdkVersion": {
       "type": "parameter",
       "datatype": "text",
-      "defaultValue": "2.1.4",
+      "defaultValue": "2.2.1",
       "replaces": "SDK_VERSION",
       "description": "Version of the VelaShell.PluginSdk.Build package to reference."
+    },
+    "avaloniaVersion": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "12.2.0",
+      "replaces": "AVALONIA_VERSION",
+      "description": "Avalonia version used by the target VelaShell host."
     },
     "pluginId": {
       "type": "parameter",

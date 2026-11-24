@@ -10,9 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- 插件工程只需要这一个包:契约程序集、与宿主版本一致的 Avalonia、
-         plugin.json 处理、清单校验与 `dotnet build -t:PackVpx` 都随它到位。
-         协议插件用不到界面,但 Avalonia 是 compile-only 的,不进插件目录,不占包体。 -->
+    <!-- 插件工程只需要这个包:契约程序集、plugin.json 处理、清单校验与
+         `dotnet build -t:PackVpx` 都随它到位。协议插件不使用 Avalonia。 -->
     <PackageReference Include="VelaShell.PluginSdk.Build" Version="SDK_VERSION" />
   </ItemGroup>
 
