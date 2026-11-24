@@ -33,6 +33,7 @@ dotnet new velaplugin-workspace -n Kafka --publisher acme
 | `--authorName` | 空 | 插件管理页展示的作者(`author` 是模板引擎的保留名,故加了后缀) |
 | `--hostMode` | `inProcess` | `inProcess` / `isolated`(仅 `velaplugin` / `velaplugin-ui`:协议与工作台能力只在 `inProcess` 下可用,那两个模板固定写死) |
 | `--sdkVersion` | 当前版本 | 引用的 `VelaShell.PluginSdk.Build` 版本(自带测试工程的模板,`VelaShell.PluginSdk.Testing` 用同一版) |
+| `--avaloniaVersion` | `12.2.0` | UI 与工作台模板目标宿主的 Avalonia 版本(仅 `velaplugin-ui` / `velaplugin-workspace`) |
 
 插件 id 由 `--publisher` 与 `-n` 拼出并全部转小写(`acme` + `Snippets` → `acme.snippets`)。
 **发布后不要再改 id**:它同时是命令 id 前缀与插件私有数据/机密的命名空间。

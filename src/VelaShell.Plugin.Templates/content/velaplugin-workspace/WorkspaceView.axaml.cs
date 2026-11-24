@@ -9,7 +9,7 @@ namespace VelaPlugin1;
 
 /// <summary>
 /// 工作台面板的视图。插件 UI 用的是**完整的 Avalonia**:编译期 AXAML、自带样式、第三方控件包都能用,
-/// 唯一约束是 Avalonia 版本必须与宿主一致(由 SDK 包锁定)。
+/// 唯一约束是 Avalonia 版本必须与目标宿主一致(由项目的 VelaAvaloniaVersion 指定)。
 /// <para>
 /// 由 <see cref="WorkspaceDocument.CreateView" /> 在 UI 线程构造。文档的事件在**后台线程**触发,
 /// 这里一律经 <see cref="Dispatcher.UIThread" /> 封送回来再碰控件。

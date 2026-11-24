@@ -4,6 +4,7 @@
     <TargetFramework>net11.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <VelaAvaloniaVersion>AVALONIA_VERSION</VelaAvaloniaVersion>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <!-- AVLN3001:面板视图刻意只有带文档的构造(由 IWorkspaceDocument.CreateView 创建),
          不走运行时 XAML 装载器的无参构造路径。 -->
@@ -14,8 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- 插件工程只需要这一个包:契约程序集、与宿主版本一致的 Avalonia(含 AXAML 编译器)、
-         plugin.json 处理、清单校验与 `dotnet build -t:PackVpx` 都随它到位。 -->
+    <!-- Avalonia 由目标宿主选版,保留 AXAML 的编译与构建资产,运行时由宿主共享。 -->
+    <PackageReference Include="Avalonia" Version="$(VelaAvaloniaVersion)" ExcludeAssets="runtime" />
     <PackageReference Include="VelaShell.PluginSdk.Build" Version="SDK_VERSION" />
   </ItemGroup>
 

@@ -83,6 +83,7 @@ dotnet build -c Release -t:PackVpx -p:VelaSigningKey=/path/to/key.pem
 - **连不上抛 `ProtocolConnectionException`**,凭据错才抛 `ProtocolAuthenticationException`(宿主据此重弹登录框)。
 - **语言切换要重注册,但实现实例沿用同一个**:换了实例,宿主会关掉这个协议名下所有开着的标签页。
 - 用到新版 SDK 的面就抬 `plugin.json` 的 `minSdkVersion`(本模板用了 2.0.4 的 `PluginIcon`)。
+- 协议模板不直接引用 Avalonia,也不需要设置目标宿主的 Avalonia 版本。
 - `VelaShell.PluginSdk.dll` 与 `Avalonia*.dll` 永远不进插件目录:装载器强制共享宿主那一套。
 
 完整开发指南(协议能力见 §5.13):<https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/templates/dev-guide.md>
