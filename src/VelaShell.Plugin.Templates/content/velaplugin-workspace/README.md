@@ -103,7 +103,7 @@ dotnet build -c Release -t:PackVpx -p:VelaSigningKey=/path/to/key.pem
 - 用到新版 SDK 的面就抬 `plugin.json` 的 `minSdkVersion`(本模板用了 2.0.4 的 `PluginIcon`)。
 - `VelaShell.PluginSdk.dll` 与 `Avalonia*.dll` 永远不进插件目录:装载器强制共享宿主那一套。
 
-完整开发指南(工作台能力见 §5.14):<https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/templates/dev-guide.md>
-命令行工具手册:<https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/cli/cli.md>
-真实规模的例子:[Redis](https://github.com/VelaShellLabs/velashell-plugins/tree/main/plugins/VelaShell.Plugin.Redis)
+完整开发指南(工作台能力见 §5.14):<https://github.com/VelaShell/velashell-docs/blob/main/zh/templates/dev-guide.md>
+命令行工具手册:<https://github.com/VelaShell/velashell-docs/blob/main/zh/cli/cli.md>
+真实规模的例子:[Redis](https://github.com/VelaShell/velashell-plugins/tree/main/plugins/VelaShell.Plugin.Redis)
 (键空间浏览器、声明式隧道、连接提议)。

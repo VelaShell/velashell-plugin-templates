@@ -86,8 +86,8 @@ dotnet build -c Release -t:PackVpx -p:VelaSigningKey=/path/to/key.pem
 - 协议模板不直接引用 Avalonia,也不需要设置目标宿主的 Avalonia 版本。
 - `VelaShell.PluginSdk.dll` 与 `Avalonia*.dll` 永远不进插件目录:装载器强制共享宿主那一套。
 
-完整开发指南(协议能力见 §5.13):<https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/templates/dev-guide.md>
-命令行工具手册:<https://github.com/VelaShellLabs/velashell-docs/blob/main/zh/cli/cli.md>
-真实规模的例子:[Telnet](https://github.com/VelaShellLabs/velashell-plugins/tree/main/plugins/VelaShell.Plugin.Telnet)
-(RFC 854 协商)与[串口](https://github.com/VelaShellLabs/velashell-plugins/tree/main/plugins/VelaShell.Plugin.Serial)
+完整开发指南(协议能力见 §5.13):<https://github.com/VelaShell/velashell-docs/blob/main/zh/templates/dev-guide.md>
+命令行工具手册:<https://github.com/VelaShell/velashell-docs/blob/main/zh/cli/cli.md>
+真实规模的例子:[Telnet](https://github.com/VelaShell/velashell-plugins/tree/main/plugins/VelaShell.Plugin.Telnet)
+(RFC 854 协商)与[串口](https://github.com/VelaShell/velashell-plugins/tree/main/plugins/VelaShell.Plugin.Serial)
 (动态下拉、带外命令)。

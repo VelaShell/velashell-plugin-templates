@@ -10,8 +10,8 @@
           VelaShell.Plugin.Templates    dotnet new 模板(velaplugin / velaplugin-ui / velaplugin-protocol / velaplugin-workspace)
 
       **与其余工具链解耦**(2026-08-27 拆库起):契约 SDK 与 VelaShell.PluginSdk.Build 在
-      VelaShellLabs/velashell-plugin-sdk(.Build 于 2026-09-11 从 velashell-plugin-cli 搬来),
-      vela-plugin 在 VelaShellLabs/velashell-plugin-cli,三者各有各的版本号。
+      VelaShell/velashell-plugin-sdk(.Build 于 2026-09-11 从 velashell-plugin-cli 搬来),
+      vela-plugin 在 VelaShell/velashell-plugin-cli,三者各有各的版本号。
       模板文案改一行就发一版模板,不必惊动那两个仓库;反过来它们发版也不要求模板跟着发。
 
       CI 发包时用 -p:VelaTemplatesVersion= 覆盖(取自 Release 标签)。
@@ -45,9 +45,9 @@
   	<Authors>joesdu</Authors>
   	<PackagePrefix>VelaShell</PackagePrefix>
   	<RepositoryType>git</RepositoryType>
-  	<RepositoryUrl>https://github.com/VelaShellLabs/velashell-plugin-templates</RepositoryUrl>
+    <RepositoryUrl>https://github.com/VelaShell/velashell-plugin-templates</RepositoryUrl>
   	<PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
-  	<PackageProjectUrl>https://github.com/VelaShellLabs/velashell-plugin-templates</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/VelaShell/velashell-plugin-templates</PackageProjectUrl>
   	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
