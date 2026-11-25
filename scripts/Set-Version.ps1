@@ -24,7 +24,7 @@
 
     漏改 ② 的模板落点:新建出来的工程去还原一个旧版包,构建期由 VELA1004 拦下。
     漏改 ② 的文档落点:不报错,但文档是给人照抄的,过期版本号会被原样粘进别人的工程。
-    2026-08-30 全部文档搬到 VelaShellLabs/velashell-docs 之后,那两处不在本仓库的
+    2026-08-30 全部文档搬到 VelaShell/velashell-docs 之后,那两处不在本仓库的
     checkout 里,所以找不到就跳过。
 
 .PARAMETER Version
@@ -71,7 +71,7 @@ Set-StrictMode -Version Latest
 $root = Split-Path -Parent $PSScriptRoot
 
 # ── velashell-docs 的位置 ────────────────────────────────────────────────────
-# 2026-08-30 起全部文档搬到 VelaShellLabs/velashell-docs,dev-guide 的 PackageReference
+# 2026-08-30 起全部文档搬到 VelaShell/velashell-docs,dev-guide 的 PackageReference
 # 片段跟着走了。那是另一个仓库,发版 runner 的 checkout 里没有它 —— 所以这两处是**可选**
 # 落点:本地开发时两个仓库通常并排放着,找得到就一起改;找不到就在末尾提醒一句。
 if (-not $DocsRoot) {
@@ -192,7 +192,7 @@ if ($skippedDocs.Count -gt 0) {
     Write-Warning @"
 没找到 velashell-docs(试过 $DocsRoot),跳过了这几处文档里的 PackageReference 片段:
 $($skippedDocs -join [Environment]::NewLine)
-文档在 https://github.com/VelaShellLabs/velashell-docs —— 把它 clone 到本仓库同级目录,
+文档在 https://github.com/VelaShell/velashell-docs —— 把它 clone 到本仓库同级目录,
 或用 -DocsRoot / `$env:VELASHELL_DOCS 指过去,再跑一次即可一并更新。
 "@
 }
